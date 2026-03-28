@@ -63,30 +63,22 @@
   </div>
 
   <!-- PAGE 3 -->
- <div id="page3" class="hidden">
-  <h1>I love you forever 💖</h1>
-  <div id="photos"></div>
-  <audio id="song" controls></audio>
-</div>
+  <div id="page3" class="hidden">
+    <h1>I love you forever 💖</h1>
+    <div id="photos"></div>
+    <audio id="song" controls></audio>
+  </div>
 
-<script>
-  // Display all 11 photos
-  const photosDiv = document.getElementById("photos");
-  for (let i = 1; i <= 11; i++) {
-    const img = document.createElement("img");
-    img.src = photo${i}.jpg.jfif;
-    photosDiv.appendChild(img);
-  }
-</script>
-    // Buttons and pages
+  <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const nextBtn = document.getElementById("nextBtn");
     const page1 = document.getElementById("page1");
     const page2 = document.getElementById("page2");
     const page3 = document.getElementById("page3");
+    const photosDiv = document.getElementById("photos");
 
-    // Moving No button
+    // Move No button on hover
     noBtn.onmouseover = function () {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
       const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -100,10 +92,20 @@
       page2.classList.remove("hidden");
     };
 
-    // Go to photos + song
+    // Go to photos + song page
     nextBtn.onclick = function () {
       page2.classList.add("hidden");
       page3.classList.remove("hidden");
+
+      // Load 11 photos dynamically
+      photosDiv.innerHTML = ""; // clear if already exists
+      for (let i = 1; i <= 11; i++) {
+        const img = document.createElement("img");
+        img.src = photo${i}.jpg.jfif;
+        photosDiv.appendChild(img);
+      }
+
+      // Load and play song
       const audio = document.getElementById("song");
       audio.src = "song.mp3";
       audio.play();
