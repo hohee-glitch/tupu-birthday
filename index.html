@@ -65,20 +65,22 @@
   <!-- PAGE 3 -->
   <div id="page3" class="hidden">
     <h1>I love you forever 💖</h1>
-    <div id="photos"></div>
+    <img src="photo1.jpg.jfif" alt="Photo1">
+    <img src="photo2.jpg.jfif" alt="Photo2">
+    <img src="photo3.jpg.jfif" alt="Photo3">
     <audio id="song" controls></audio>
   </div>
 
   <script>
+    // Buttons and pages
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
     const nextBtn = document.getElementById("nextBtn");
     const page1 = document.getElementById("page1");
     const page2 = document.getElementById("page2");
     const page3 = document.getElementById("page3");
-    const photosDiv = document.getElementById("photos");
 
-    // Move No button on hover
+    // Moving No button
     noBtn.onmouseover = function () {
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
       const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
@@ -92,20 +94,10 @@
       page2.classList.remove("hidden");
     };
 
-    // Go to photos + song page
+    // Go to photos + song
     nextBtn.onclick = function () {
       page2.classList.add("hidden");
       page3.classList.remove("hidden");
-
-      // Load 11 photos dynamically
-      photosDiv.innerHTML = ""; // clear if already exists
-      for (let i = 1; i <= 11; i++) {
-        const img = document.createElement("img");
-        img.src = photo${i}.jpg.jfif;
-        photosDiv.appendChild(img);
-      }
-
-      // Load and play song
       const audio = document.getElementById("song");
       audio.src = "song.mp3";
       audio.play();
