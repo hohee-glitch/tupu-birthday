@@ -7,17 +7,14 @@
       text-align: center;
       font-family: Arial;
       background: #ffe6eb;
+      margin-top: 80px;
       margin: 0;
       padding-top: 100px;
       overflow-x: hidden;
     }
     h1 {
       color: #ff4d6d;
-    }
-    button {
-      padding: 12px 25px;
-      font-size: 18px;
-      margin: 10px;
+@@ -19,6 +21,7 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -25,46 +22,28 @@
     }
     #noBtn {
       position: absolute;
-    }
-    .hidden {
-      display: none;
-    }
-    img {
-      width: 200px;
-      margin: 10px;
-      border-radius: 10px;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- PAGE 1 -->
-  <div id="page1">
-    <h1>Ready to cry? 🥺</h1>
-    <button id="yesBtn">Yes 💕</button>
-    <button id="noBtn">No 😭</button>
-  </div>
-
-  <!-- PAGE 2 -->
-  <div id="page2" class="hidden">
-    <h1>💌 A Letter For You</h1>
+@@ -48,11 +51,11 @@
     <p>
       One day I suddenly realized that one person was ready to handle all of my tantrums. Someone was up in the morning, even when she had no classes, just to call me to wake me up. Someone was ready to feed me, tie my shoelaces, and be the man I didn’t have. Someone was more than willing to hug me tighter every time I cried. Someone woke up at 3 in the morning just to calm me down. Someone was more than happy to wipe my tears and keep me standing.
 
+      One fine day, I suddenly realized I didn’t need anyone else anymore. That one person was willing to be my fairy godmother and my prince in shining armor all along. One day I said hi to a girl who talked to me about my phone cover, and from that day forward, I kept having this feeling that no matter what happens in my life, Tupur got me.
       One fine day, I suddenly realized I didn’t need anyone else anymore. That one person was willing to be my fairy godmother and my prince in shining armor all along. One day I said hi to a girl who talked to me about my phone cover, and from that day forward, I kept having this feeling that no matter what happens in my life, Tupu got me.
 
+      And suddenly, whatever mishap happens, I can just run back to her and she’ll be there, being everything for me in my darkest days without asking for anything in return. That one day I said hi to you changed my life, and suddenly one best friend was more than enough for a thousand people.
       And suddenly, whatever mishap happens, I can just run back to her and she’ll be there—being everything for me in my darkest days without asking for anything in return. That one day I said hi to you changed my life, and suddenly one best friend was more than enough for a thousand people.
 
+      It’s a love story, I guess; where it’s not a guy, but my friends who are my soulmates, and Tupu becomes my mother, sister, and savior in so many ways that a lot of people failed to be. I’m not thanking you, just loving you, for that one day you said hi to me, and this day I just know how much I needed you back then.
       It’s a love story, I guess—where it’s not a guy, but my friends who are my soulmates, and Tupu becomes my mother, sister, and savior in so many ways that a lot of people failed to be. I’m not thanking you, just loving you—for that one day you said hi to me, and this day I just know how much I needed you back then.
     </p>
 
     <h2>Ready for Ohee’s love letter to Tupu Tupu? 😚</h2>
-    <button id="nextBtn">Yes 💞</button>
-  </div>
-
+@@ -62,37 +65,42 @@
   <!-- PAGE 3 -->
   <div id="page3" class="hidden">
     <h1>I love you forever 💖</h1>
+    <img src="photo1.jpg.jfif">
+    <img src="photo2.jpg.jfif">
+    <img src="photo3.jpg.jfif">
     <img src="photo1.jpg.jfif" alt="Photo1">
     <img src="photo2.jpg.jfif" alt="Photo2">
     <img src="photo3.jpg.jfif" alt="Photo3">
@@ -82,6 +61,8 @@
 
     // Moving No button
     noBtn.onmouseover = function () {
+      const x = Math.random() * (window.innerWidth - 100);
+      const y = Math.random() * (window.innerHeight - 50);
       const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
       const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
       noBtn.style.left = x + "px";
@@ -98,11 +79,12 @@
     nextBtn.onclick = function () {
       page2.classList.add("hidden");
       page3.classList.remove("hidden");
+      document.getElementById("song").src = "song.mp3";
+      document.getElementById("song").play();
       const audio = document.getElementById("song");
       audio.src = "song.mp3";
       audio.play();
     };
   </script>
-
 </body>
 </html>
