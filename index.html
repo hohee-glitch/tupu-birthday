@@ -10,25 +10,15 @@
       text-align: center;
       font-family: Arial;
       background: #ffe6eb;
-      margin: 0;
       padding-top: 80px;
     }
 
-    button {
-      padding: 12px 25px;
-      font-size: 18px;
-      margin: 10px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-    }
-
-    #noBtn {
-      position: absolute;
-    }
-
-    .hidden {
+    .page {
       display: none;
+    }
+
+    .active {
+      display: block;
     }
 
     .letter {
@@ -46,73 +36,59 @@
       margin: 10px;
       border-radius: 10px;
     }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+    }
   </style>
 </head>
 
 <body>
 
 <!-- PAGE 1 -->
-<div id="page1">
+<div id="page1" class="page active">
   <h1>Ready to cry? 🥺</h1>
-  <button onclick="goPage2()">Yes 💕</button>
-  <button id="noBtn">No 😭</button>
+  <a href="#page2"><button>Yes 💕</button></a>
 </div>
 
 <!-- PAGE 2 -->
-<div id="page2" class="hidden">
+<div id="page2" class="page">
   <h1>💌 A Letter For You</h1>
 
   <div class="letter">
-    (PUT YOUR LETTER HERE)
+    (PASTE YOUR LETTER HERE)
   </div>
 
   <br>
-  <button onclick="goPage3()">Yes 💞</button>
+  <a href="#page3"><button>Yes 💞</button></a>
 </div>
 
 <!-- PAGE 3 -->
-<div id="page3" class="hidden">
+<div id="page3" class="page">
   <h1>I love you forever 💖</h1>
-  <div id="photos"></div>
+
+  <!-- ALL 11 PHOTOS -->
+  <img src="photo1.jpg.jfif">
+  <img src="photo2.jpg.jfif">
+  <img src="photo3.jpg.jfif">
+  <img src="photo4.jpg.jfif">
+  <img src="photo5.jpg.jfif">
+  <img src="photo6.jpg.jfif">
+  <img src="photo7.jpg.jfif">
+  <img src="photo8.jpg.jfif">
+  <img src="photo9.jpg.jfif">
+  <img src="photo10.jpg.jfif">
+  <img src="photo11.jpg.jfif">
+
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
 </div>
-
-<audio id="song" loop></audio>
-
-<script>
-  const noBtn = document.getElementById("noBtn");
-
-  // Move NO button
-  noBtn.onmouseover = function () {
-    const x = Math.random() * window.innerWidth;
-    const y = Math.random() * window.innerHeight;
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  };
-
-  function goPage2() {
-    document.getElementById("page1").style.display = "none";
-    document.getElementById("page2").style.display = "block";
-  }
-
-  function goPage3() {
-    document.getElementById("page2").style.display = "none";
-    document.getElementById("page3").style.display = "block";
-
-    // Load photos
-    const photosDiv = document.getElementById("photos");
-    photosDiv.innerHTML = "";
-    for (let i = 1; i <= 11; i++) {
-      const img = document.createElement("img");
-      img.src = "photo" + i + ".jpg.jfif";
-      photosDiv.appendChild(img);
-    }
-
-    // Play music
-    const audio = document.getElementById("song");
-    audio.src = "song.mp3";
-    audio.play();
-  }
-</script>
 
 </body>
 </html>
