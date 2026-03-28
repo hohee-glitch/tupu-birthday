@@ -3,7 +3,6 @@
 <head>
   <title>For Tupu 💖</title>
 
-  <!-- Google Font (handwriting style) -->
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
   <style>
@@ -13,21 +12,15 @@
       background: #ffe6eb;
       margin: 0;
       padding-top: 80px;
-      overflow-x: hidden;
-    }
-
-    h1 {
-      color: #ff4d6d;
     }
 
     button {
       padding: 12px 25px;
       font-size: 18px;
       margin: 10px;
-      border: none;
       border-radius: 10px;
+      border: none;
       cursor: pointer;
-      transition: 0.3s;
     }
 
     #noBtn {
@@ -38,24 +31,20 @@
       display: none;
     }
 
-    /* Letter style */
     .letter {
       max-width: 600px;
       margin: auto;
       background: #fffaf0;
       padding: 30px;
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
       font-family: 'Great Vibes', cursive;
       font-size: 22px;
-      line-height: 1.8;
-      color: #333;
     }
 
     img {
       width: 200px;
       margin: 10px;
-      border-radius: 15px;
+      border-radius: 10px;
     }
   </style>
 </head>
@@ -65,7 +54,7 @@
 <!-- PAGE 1 -->
 <div id="page1">
   <h1>Ready to cry? 🥺</h1>
-  <button id="yesBtn">Yes 💕</button>
+  <button onclick="goPage2()">Yes 💕</button>
   <button id="noBtn">No 😭</button>
 </div>
 
@@ -74,18 +63,11 @@
   <h1>💌 A Letter For You</h1>
 
   <div class="letter">
-    One day I suddenly realized that one person was ready to handle all of my tantrums. Someone was up in the morning, even when she had no classes, just to call me to wake me up. Someone was ready to feed me, tie my shoelaces, and be the man I didn’t have. Someone was more than willing to hug me tighter every time I cried. Someone woke up at 3 in the morning just to calm me down. Someone was more than happy to wipe my tears and keep me standing.<br><br>
-
-    One fine day, I suddenly realized I didn’t need anyone else anymore. That one person was willing to be my fairy godmother and my prince in shining armor all along. One day I said hi to a girl who talked to me about my phone cover, and from that day forward, I kept having this feeling that no matter what happens in my life, Tupu got me.<br><br>
-
-    And suddenly, whatever mishap happens, I can just run back to her and she’ll be there—being everything for me in my darkest days without asking for anything in return. That one day I said hi to you changed my life, and suddenly one best friend was more than enough for a thousand people.<br><br>
-
-    It’s a love story, I guess—where it’s not a guy, but my friends who are my soulmates, and Tupu becomes my mother, sister, and savior in so many ways that a lot of people failed to be. I’m not thanking you, just loving you—for that one day you said hi to me, and this day I just know how much I needed you back then.
+    (PUT YOUR LETTER HERE)
   </div>
 
   <br>
-  <h2>Ready for Ohee’s love letter to Tupu Tupu? 😚</h2>
-  <button id="nextBtn">Yes 💞</button>
+  <button onclick="goPage3()">Yes 💞</button>
 </div>
 
 <!-- PAGE 3 -->
@@ -94,57 +76,42 @@
   <div id="photos"></div>
 </div>
 
-<!-- BACKGROUND MUSIC -->
 <audio id="song" loop></audio>
 
 <script>
   const noBtn = document.getElementById("noBtn");
-  const yesBtn = document.getElementById("yesBtn");
-  const nextBtn = document.getElementById("nextBtn");
-  const page1 = document.getElementById("page1");
-  const page2 = document.getElementById("page2");
-  const page3 = document.getElementById("page3");
-  const photosDiv = document.getElementById("photos");
 
-  let yesSize = 18;
-
-  // Moving + shrinking NO button
+  // Move NO button
   noBtn.onmouseover = function () {
-    const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
-    const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
-
-    noBtn.style.transform = "scale(0.9)";
-
-    yesSize += 5;
-    yesBtn.style.fontSize = yesSize + "px";
   };
 
-  // Go to page 2
-  yesBtn.onclick = function () {
-    page1.classList.add("hidden");
-    page2.classList.remove("hidden");
-  };
+  function goPage2() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+  }
 
-  // Go to page 3
-  nextBtn.onclick = function () {
-    page2.classList.add("hidden");
-    page3.classList.remove("hidden");
+  function goPage3() {
+    document.getElementById("page2").style.display = "none";
+    document.getElementById("page3").style.display = "block";
 
-    // Load 11 photos
+    // Load photos
+    const photosDiv = document.getElementById("photos");
     photosDiv.innerHTML = "";
     for (let i = 1; i <= 11; i++) {
       const img = document.createElement("img");
-      img.src = photo${i}.jpg.jfif;
+      img.src = "photo" + i + ".jpg.jfif";
       photosDiv.appendChild(img);
     }
 
-    // Play music automatically
+    // Play music
     const audio = document.getElementById("song");
     audio.src = "song.mp3";
     audio.play();
-  };
+  }
 </script>
 
 </body>
