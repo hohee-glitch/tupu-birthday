@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For Tupu 💖</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial;
+      background: #ffe6eb;
+      margin-top: 80px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    #noBtn {
+      background: #ccc;
+      position: absolute;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    img {
+      width: 200px;
+      margin: 10px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1">
+  <h1>Ready to cry? 🥺</h1>
+  <button id="yesBtn" onclick="goToPage2()">Yes 💕</button>
+  <button id="noBtn" onmouseover="moveNo()">No 😭</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="hidden">
+  <h1>💌 A Letter For You</h1>
+  <p>
+    <!-- ✨ PASTE YOUR LETTER HERE ✨ -->
+    Dear Tupu,<br><br>
+    (write your emotional paragraph here 💖)
+  </p>
+
+  <h2>Ready for Ohee’s love letter to Tupu Tupu? 😚</h2>
+  <button onclick="goToPage3()">Yes 💞</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="hidden">
+  <h1>I love you forever 💖</h1>
+
+  <!-- PHOTOS -->
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+
+  <!-- MUSIC -->
+  <audio id="song" autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
+<script>
+  let noBtn = document.getElementById("noBtn");
+  let yesBtn = document.getElementById("yesBtn");
+  let size = 18;
+
+  function moveNo() {
+    let x = Math.random() * window.innerWidth;
+    let y = Math.random() * window.innerHeight;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    size -= 2;
+    if (size > 😎 {
+      noBtn.style.fontSize = size + "px";
+    }
+
+    yesBtn.style.fontSize = (18 + (18 - size)) + "px";
+  }
+
+  function goToPage2() {
+    document.getElementById("page1").classList.add("hidden");
+    document.getElementById("page2").classList.remove("hidden");
+  }
+
+  function goToPage3() {
+    document.getElementById("page2").classList.add("hidden");
+    document.getElementById("page3").classList.remove("hidden");
+    document.getElementById("song").play();
+  }
+</script>
+
+</body>
+</html>
