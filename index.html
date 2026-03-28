@@ -8,13 +8,10 @@
       font-family: Arial;
       background: #ffe6eb;
       margin-top: 80px;
-      overflow: hidden;
     }
-
     h1 {
       color: #ff4d6d;
     }
-
     button {
       padding: 12px 25px;
       font-size: 18px;
@@ -23,21 +20,12 @@
       border-radius: 10px;
       cursor: pointer;
     }
-
-    #yesBtn {
-      background: #ff4d6d;
-      color: white;
-    }
-
     #noBtn {
-      background: #ccc;
       position: absolute;
     }
-
     .hidden {
       display: none;
     }
-
     img {
       width: 200px;
       margin: 10px;
@@ -45,75 +33,67 @@
     }
   </style>
 </head>
-
 <body>
 
-<!-- PAGE 1 -->
-<div id="page1">
-  <h1>Ready to cry? 🥺</h1>
-  <button id="yesBtn" onclick="goToPage2()">Yes 💕</button>
-  <button id="noBtn" onmouseover="moveNo()">No 😭</button>
-</div>
+  <!-- PAGE 1 -->
+  <div id="page1">
+    <h1>Ready to cry? 🥺</h1>
+    <button id="yesBtn">Yes 💕</button>
+    <button id="noBtn">No 😭</button>
+  </div>
 
-<!-- PAGE 2 -->
-<div id="page2" class="hidden">
-  <h1>💌 A Letter For You</h1>
-  <p>
-    <!-- ✨ PASTE YOUR LETTER HERE ✨ -->
-    Dear Tupu,<br><br>
-    (write your emotional paragraph here 💖)
-  </p>
+  <!-- PAGE 2 -->
+  <div id="page2" class="hidden">
+    <h1>💌 A Letter For You</h1>
+    <p>
+      One day I suddenly realized that one person was ready to handle all of my tantrums. Someone was up in the morning, even when she had no classes, just to call me to wake me up. Someone was ready to feed me, tie my shoelaces, and be the man I didn’t have. Someone was more than willing to hug me tighter every time I cried. Someone woke up at 3 in the morning just to calm me down. Someone was more than happy to wipe my tears and keep me standing.
 
-  <h2>Ready for Ohee’s love letter to Tupu Tupu? 😚</h2>
-  <button onclick="goToPage3()">Yes 💞</button>
-</div>
+      One fine day, I suddenly realized I didn’t need anyone else anymore. That one person was willing to be my fairy godmother and my prince in shining armor all along. One day I said hi to a girl who talked to me about my phone cover, and from that day forward, I kept having this feeling that no matter what happens in my life, Tupur got me.
 
-<!-- PAGE 3 -->
-<div id="page3" class="hidden">
-  <h1>I love you forever 💖</h1>
+      And suddenly, whatever mishap happens, I can just run back to her and she’ll be there—being everything for me in my darkest days without asking for anything in return. That one day I said hi to you changed my life, and suddenly one best friend was more than enough for a thousand people.
 
-  <!-- PHOTOS -->
-  <img src="photo1.jpg">
-  <img src="photo2.jpg">
-  <img src="photo3.jpg">
+      It’s a love story, I guess—where it’s not a guy, but my friends who are my soulmates, and Tupu becomes my mother, sister, and savior in so many ways that a lot of people failed to be. I’m not thanking you, just loving you—for that one day you said hi to me, and this day I just know how much I needed you back then.
+    </p>
 
-  <!-- MUSIC -->
-  <audio id="song" autoplay loop>
-    <source src="song.mp3" type="audio/mpeg">
-  </audio>
-</div>
+    <h2>Ready for Ohee’s love letter to Tupu Tupu? 😚</h2>
+    <button id="nextBtn">Yes 💞</button>
+  </div>
 
-<script>
-  let noBtn = document.getElementById("noBtn");
-  let yesBtn = document.getElementById("yesBtn");
-  let size = 18;
+  <!-- PAGE 3 -->
+  <div id="page3" class="hidden">
+    <h1>I love you forever 💖</h1>
+    <img src="photo1.jpg">
+    <img src="photo2.jpg">
+    <img src="photo3.jpg">
+    <audio id="song" controls></audio>
+  </div>
 
-  function moveNo() {
-    let x = Math.random() * window.innerWidth;
-    let y = Math.random() * window.innerHeight;
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const page1 = document.getElementById("page1");
+    const page2 = document.getElementById("page2");
+    const page3 = document.getElementById("page3");
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    noBtn.onmouseover = function () {
+      const x = Math.random() * window.innerWidth;
+      const y = Math.random() * window.innerHeight;
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    };
 
-    size -= 2;
-    if (size > 😎 {
-      noBtn.style.fontSize = size + "px";
-    }
-
-    yesBtn.style.fontSize = (18 + (18 - size)) + "px";
-  }
-
-  function goToPage2() {
-    document.getElementById("page1").classList.add("hidden");
-    document.getElementById("page2").classList.remove("hidden");
-  }
-
-  function goToPage3() {
-    document.getElementById("page2").classList.add("hidden");
-    document.getElementById("page3").classList.remove("hidden");
-    document.getElementById("song").play();
-  }
-</script>
+    yesBtn.onclick = function () {
+      page1.classList.add("hidden");
+      page2.classList.remove("hidden");
+    };
+    nextBtn.onclick = function () {
+      page2.classList.add("hidden");
+      page3.classList.remove("hidden");
+      document.getElementById("song").src = "song.mp3";
+      document.getElementById("song").play();
+    };
+  </script>
 
 </body>
 </html>
